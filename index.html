@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaUTS - Noticias y Tendencias Tecnológicas</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Font para estilo tecnológico -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-microchip"></i> InnovaUTS</h1>
+        <p class="subtitulo">Explorando el futuro digital en conjunto con el tecnologico UTS</p>
+        <nav>
+            <ul>
+                <li><a href="#acerca"><i class="fas fa-user"></i> Acerca</a></li>
+                <li><a href="#novedades"><i class="fas fa-bolt"></i> Novedades</a></li>
+                <li><a href="#imagen"><i class="fas fa-image"></i> Imagen</a></li>
+                <li><a href="complemento.html"><i class="fas fa-file-alt"></i> Complemento</a></li>
+                <li><a href="Datos.html"><i class="fas fa-user"></i> CEO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="acerca">
+            <h2>¿Quiénes Somos?</h2>
+            <p>Somos una plataforma dedicada a difundir las últimas noticias, avances y análisis del mundo de la informática, la inteligencia artificial, el desarrollo de software y las innovaciones tecnológicas.</p>
+            <p>Creemos en el poder de la información para transformar el futuro y en la importancia de mantenerse actualizado en esta era digital acelerada.</p>
+        </section>
+
+        <section id="novedades">
+            <h2>Últimas Novedades</h2>
+            <ul>
+                <li><strong>[Jun 2025]</strong> Apple lanza su primer MacBook con chip neuronal mejorado.</li>
+                <li><strong>[May 2025]</strong> OpenAI presenta mejoras revolucionarias en GPT-5.</li>
+                <li><strong>[Abr 2025]</strong> La computación cuántica alcanza un nuevo récord de procesamiento.</li>
+            </ul>
+        </section>
+
+        <section id="imagen">
+            <h2>Un Vistazo al Futuro</h2>
+            <img src="https://www.goyasoluciones.com/wp-content/uploads/articulo2.jpg" alt="Tecnología moderna">
+            <p>La evolución de la tecnología redefine nuestras vidas cada día. Desde inteligencia artificial hasta nanotecnología, el futuro está más cerca de lo que imaginamos.</p>
+        </section>
+         <section id="galeria">
+    <h2>Carrusel de nuevas tecnologías informáticas</h2>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <img src="https://th.bing.com/th/id/R.67ad05e1ba2a9ececdb81c512adc1191?rik=H%2bBmo62sYpxDlw&pid=ImgRaw&r=0" alt="1">
+            <img src="https://blogs.unib.org/wp-content/uploads/2024/10/computacion-cuantica-portada.jpg" alt="2">
+            <img src="https://targettrend.com/wp-content/uploads/2023/08/Spatial-Computing.jpeg" alt="">
+            <img src="https://th.bing.com/th/id/OIP.Cy2JZ6eyxdwf3x1U2MrDtAHaEp?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="4">
+            <img src="https://th.bing.com/th/id/R.00a8ff2cf56313732c5a7e71eeff4404?rik=OlB6%2fXucaruwZQ&riu=http%3a%2f%2fwww.theeconomyjournal.com%2fimages%2fshowid%2f908774&ehk=BZFOyq9r8CDRxmyQCQW4jfvjeyJuyJZVAcKVOK3YUrw%3d&risl=&pid=ImgRaw&r=0" alt="5">
+            <img src="https://th.bing.com/th/id/OIP.-GpBx2Kbg29XDMgDuCBsRgHaHa?rs=1&pid=ImgDetMain&cb=idpwebpc2" alt="6">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRkNi_WU-WUE6dndJ8SsCnzwDlJO7EGZYkN2Z93pGMI0A2MiNDoSvnx200746kR" alt="7">
+            <img src="https://alphaenginyeria.com/wp-content/uploads/2024/01/Tendencias-Tecnologicas-2024-Las.webp" alt="8">
+        </div>
+        <button id="prev" class="nav-btn">&#10094;</button>
+        <button id="next" class="nav-btn">&#10095;</button>
+    </div>
+</section>
+        <section id="enlaces">
+            <h2>Explora Más</h2>
+            <p>Visita <a href="https://cnnespanol.cnn.com/ciencia/tecnologia" target="_blank">CNN EN ESPAÑOL - Tecnología</a> para más noticias globales.</p>
+            <p>O descubre más en nuestra <a href="complemento.html">otra sección especializada</a>.</p>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 InnovaUTS. Conectando ideas con innovación.</p>
+    </footer>
+    <script>
+    const slider = document.getElementById('slider');
+    const images = slider.querySelectorAll('img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let index = 0;
+    let interval = null;
+
+    function showImage(i) {
+        slider.style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    function startAutoSlide() {
+        interval = setInterval(() => {
+            index = (index + 1) % images.length;
+            showImage(index);
+        }, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+        startAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        index = (index + 1) % images.length;
+        showImage(index);
+        startAutoSlide();
+    });
+
+    slider.addEventListener('mouseover', stopAutoSlide);
+    slider.addEventListener('mouseout', startAutoSlide);
+
+    startAutoSlide();
+</script>
+</body>
+</html>
